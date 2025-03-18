@@ -3,5 +3,5 @@ window.onload = function() {
 };
 
 document.getElementById("changeColorBtn").onclick = function() {
-    document.body.style.backgroundColor = "green";
+    document.body.style.backgroundColor = "lightblue";
 };
