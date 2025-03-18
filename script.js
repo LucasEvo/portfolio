@@ -6,13 +6,19 @@ document.getElementById("changeColorBtn").onclick = function() {
     document.body.style.backgroundColor = "lightblue";
 };
 
-document.getElementById("contactForm").onsubmit = function(event) {
-    event.preventDefault();  // Impede o envio padrão do formulário
-    var name = document.getElementById("name").value;
-    
-    if (name === "") {
-        alert("Por favor, insira seu nome!");
+document.getElementById("formContato").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita o recarregamento da página
+
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("email").value;
+    let mensagem = document.getElementById("mensagem").value;
+
+    if (nome && email && mensagem) {
+        document.getElementById("msgStatus").innerText = "Mensagem enviada com sucesso!";
+        document.getElementById("msgStatus").style.color = "green";
+        document.getElementById("formContato").reset(); // Limpa os campos
     } else {
-        alert("Obrigado por enviar, " + name + "!");
+        document.getElementById("msgStatus").innerText = "Por favor, preencha todos os campos.";
+        document.getElementById("msgStatus").style.color = "red";
     }
-};
+});
